@@ -1,22 +1,23 @@
 python run_speech_recognition_seq2seq_streaming.py \
     --model_name_or_path="openai/whisper-small" \
     --dataset_name="mozilla-foundation/common_voice_11_0" \
-    --dataset_config_name="as" \
-    --language="assamese" \
+    --dataset_config_name="ur" \
+    --language="urdu" \
     --train_split_name="train+validation" \
     --eval_split_name="test" \
-    --model_index_name="Whisper Small Assamese" \
-    --max_steps="400" \
+    --model_index_name="Whisper Small Urdu" \
+    --max_steps="2000" \
     --output_dir="./" \
     --per_device_train_batch_size="64" \
+    --gradient_accumulation_steps=2 \
     --per_device_eval_batch_size="32" \
     --logging_steps="25" \
     --learning_rate="1e-5" \
-    --warmup_steps="40" \
+    --warmup_steps="200" \
     --evaluation_strategy="steps" \
-    --eval_steps="50" \
+    --eval_steps="400" \
     --save_strategy="steps" \
-    --save_steps="50" \
+    --save_steps="400" \
     --generation_max_length="225" \
     --length_column_name="input_length" \
     --max_duration_in_seconds="30" \
@@ -33,5 +34,6 @@ python run_speech_recognition_seq2seq_streaming.py \
     --do_eval \
     --predict_with_generate \
     --do_normalize_eval \
+    --no-streaming \
     --use_auth_token \
     --push_to_hub
