@@ -34,6 +34,5 @@ python run_speech_recognition_seq2seq_streaming.py \
     --do_eval \
     --predict_with_generate \
     --do_normalize_eval \
-    --no-streaming \
     --use_auth_token \
     --push_to_hub
